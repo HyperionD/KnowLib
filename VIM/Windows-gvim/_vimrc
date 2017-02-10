@@ -1,0 +1,48 @@
+" 配置更改自动生效
+autocmd! bufwritepost $VIM/_vimrc source %
+
+""""""""""""""""""" 常规设置 """"""""""""""""""
+" 显示行号
+set nu
+
+" 不自动生成备份
+set nobackup
+
+" backspace键正常删除
+set backspace=indent,eol,start 
+
+" 实时高亮搜索
+set incsearch
+set hlsearch
+
+" 将tab自动展开为空格
+set expandtab
+
+" 每行缩进深度
+set shiftwidth=4
+
+" tab显示宽度
+set tabstop=4
+"""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""" 中文编码 """""""""""""""""""
+set encoding=utf-8
+set fenc=utf-8
+set fileencodings=ucs-bom,utf-8,cp936
+
+" 中文引号显示
+set ambiwidth=double 
+"""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""" GUI设置 """""""""""""""""""
+" 隐藏菜单栏和工具栏
+set guioptions-=m
+set guioptions-=T
+
+" Theme
+syntax enable
+set background=dark
+colorscheme material-theme
+"""""""""""""""""""""""""""""""""""""""""""""""""
