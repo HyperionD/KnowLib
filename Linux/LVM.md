@@ -14,9 +14,80 @@ LVM利用Linux内核的device-mapper来实现存储系统的虚拟化（系统�
 
 ## 命令代码
 
+列出可被用作物理卷的设备
 
 ``` bash
-# 列出可被用作物理卷的设备
-
 # lvmdiskscan
 ```
+
+创建物理卷
+
+``` bash
+# pvcreate DEVICE
+
+e.g.
+# pvcreate /dev/sda2
+```
+
+查看已创建好的物理卷
+
+```bash
+# pvdisplay
+```
+
+创建卷组
+
+```bash
+# vgcreate <volume_group> <physical_volume>
+
+e.g.
+# vgcreate Fedora /dev/sda2
+```
+
+让卷组包含其它物理卷
+
+```bash
+# vgextend <volume_group> <physical_volume>
+# vgextend <volume_group> <another_physical_volume>
+
+e.g.
+# vgextend Fedora /dev/sdb1
+# vgextend Fedora /dev/sdc
+```
+
+查看已创建卷组
+
+```bash
+# vgdisplay
+```
+
+创建逻辑卷
+
+```bash
+# lvcreate -L <size> <volume_group> -n <logical_volume>
+
+e.g.
+# lvcreate -L 10G Fedora -n lvroot
+```
+
+创建完逻辑卷后可以通过/dev/Fedora/lvroot或/dev/mapper/Fedora-lvroot来访问它
+
+可以指定一个或多个物理卷来限制LVM分配数据空间的位置。比如希望在较小的SSD硬盘上创建根文件系统，并在较慢的机械硬盘上创建家目录卷，仅需把物理卷设备加入到命令中
+
+```bash
+# lvcreate -L 10G Fedora -n lvroot /dev/sdc1
+```
+
+让逻辑卷拥有卷组（VG）的所有未使用空间
+
+```bash
+# lvcreate -l +100%FREE <volume_group> -n <logical_volume>
+```
+
+查看已创建逻辑卷
+
+```bash
+lvdisplay
+```
+
+逻辑卷创建完后可以像普通分区一样创建文件系统
