@@ -91,3 +91,10 @@ e.g.
 ```
 
 逻辑卷创建完后可以像普通分区一样创建文件系统
+
+移除逻辑卷
+
+```bash
+# lvremove <volume_group>/<logical_volume>
+```
+
