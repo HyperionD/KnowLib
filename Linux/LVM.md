@@ -98,3 +98,8 @@ e.g.
 # lvremove <volume_group>/<logical_volume>
 ```
 
+重卷组（VG）中移除物理卷（PV）
+
+```bash
+# vgreduce Arch /dev/sda2
+```
