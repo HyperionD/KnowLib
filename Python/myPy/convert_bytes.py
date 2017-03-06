@@ -1,4 +1,4 @@
-def convertBytes(size, step=1024):
+def convert_bytes(size, step=1024):
     """
     Convert Bytes to human readable
 
@@ -22,5 +22,5 @@ def convertBytes(size, step=1024):
             size = size / step
 
 if __name__ == '__main__':
-    a = convertBytes(72708034560)
+    a = convert_bytes(72708034560)
     print(a)
