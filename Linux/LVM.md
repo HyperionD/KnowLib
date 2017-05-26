@@ -103,3 +103,11 @@ e.g.
 ```bash
 # vgreduce Arch /dev/sda2
 ```
+
+# 逻辑卷扩容
+
+```bash
+# lvresize -r -l +100%FREE <volume_group>/<logical_volume>
+
+-r --resizefs 刷新文件系统
+```
