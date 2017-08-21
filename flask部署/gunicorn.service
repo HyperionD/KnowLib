@@ -1,0 +1,17 @@
+[Unit]
+Description=gunicorn daemon
+After=network.target
+
+[Service]
+PIDFile=/run/gunicorn/pid
+User=hyperion
+Group=hyperion
+RuntimeDirectory=gunicorn
+WorkingDirectory=/home/hyperion/api/note/note
+ExecStart=/usr/bin/gunicorn -w 3 -b 127.0.0.1:8001 --pid /home/hyperion/nginx/gunicorn.pid api:app
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s TERM $MAINPID
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

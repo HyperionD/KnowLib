@@ -1,5 +1,11 @@
 # 使用systemd-networkd设置网络
 
+## 启动服务
+
+```
+# systemctl start systemd-networkd 
+```
+
 ## 静态IP
 
 ```
