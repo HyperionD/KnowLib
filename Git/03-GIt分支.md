@@ -30,6 +30,7 @@ $ git branch -d <branch_name>
 $ git branch
 
 -v 显示每一个分支最后一次提交
+-vv 显示分支追踪的远程仓库
 ```
 
 # 变基（清理提交历史）
