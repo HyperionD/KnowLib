@@ -39,4 +39,4 @@ $ git branch
 
 ```bash
 $ git rebase <branch_name> # 将当前分支变基到<branch_name>
-````
+```
